@@ -5,12 +5,12 @@ on:
     branches:
       - master
       - develop
-env:
-  DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/web-test
 
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE: ${{ secrets.DOCKERHUB_USERNAME }}/web-test
 
     steps:
       - name: Checkout
