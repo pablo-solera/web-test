@@ -3,6 +3,10 @@ FROM oven/bun:1.3 AS builder
 
 WORKDIR /app
 
+# URL pública de la API, inyectada por Vite en tiempo de build
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
 # Copy package files
 COPY package.json bun.lockb* ./
 
